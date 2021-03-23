@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <a href="/" class='btn btn-default'>&leftarrow; Back Home</a>
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Interview</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in emp_list %}
+                            <tr>
+                                <td>{{ object.id }}</td>
+                                <td>{{ object.name }}</td>
+                                <td>{{ object.username }}</td>
+                                <td>{{ object.age }}</td>
+                                <td>{{ object.email }}</td>
+                                <td class='interviewed'>
+                                    <span class="p-1" style="background-color:  #b3ffb3;  border-radius: 10px;">interviewed</span>
+                                </td>
+                                <td>
+                                    <a href="/detail/{{ object.id }}" style="text-decoration: none;">
+                                        <span class='fas fa-eye'></span>
+                                    </a>
+                                    <a href="#" style="text-decoration: none;">
+                                        <span class="fas fa-edit text-secondary ms-2"></span>
+                                    </a>
+                                    <a href="/delete/{{ object.id }}">
+                                        <span class="fas fa-trash text-danger ms-2"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

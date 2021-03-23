@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">    
+        <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }}">
     </head>
 <body style='font-family: Playfair Display', serif;'>
     <header>
         <div class="bg-dark">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
                         <h3 class="ps-3 pt-3 text-light">Apply to get hired!</h3>
                         <p class="text-light p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse libero ut fugiat. Esse in praesentium cumque eveniet dolores ducimus saepe sapiente, provident vitae libero. Repudiandae libero velit ad hic quos!</p>
+                       
+                        
+                            <div class='mb-2'>
+                                <a href="/employees" class="btn btn-secondary">View Employees</a>
+                                <a href="/create" class="btn btn-primary ms-2">Add New Employee</a>
+                            </div>
+             
+                    </div>
+                    <div class="col-md-2">
+                        <img class="py-2" src="{{ url_for('static', filename='images/coding.svg')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -42,8 +56,21 @@
     </div>
       
     {% endblock content %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    <br>
+    <footer class="bg-dark fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center text-light pt-2">
+                        All Rights Reserved &copy; <script>document.write(new Date().getFullYear())</script> | this site was made with <span class="fas fa-heart text-danger"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 </body>
 </html>

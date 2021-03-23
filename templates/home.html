@@ -1,36 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-  <div class="row justify-content-center mt-1">
-    <div class="col-md-10">
-      <div class="card">
-        <div class="card-body">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Username</th>
-              <th>Age</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for object in  emp_list %}
-              <tr>
-                <td>{{ object.id }}</td>
-                <td>{{ object.name }}</td>
-                <td>{{ object.username }}</td>
-                <td>{{ object.age }}</td>
-                <td>{{ object.email }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <h4 class="py-2">HR, can bring you the most talented employees and employers</h4>
       </div>
     </div>
+    <div class="row mt-2 justify-content-center">
+      <div class="col-md-6">
+          <img
+            src="https://images.unsplash.com/photo-1598870784088-35e7058da12c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+            alt="" height="300">
+       
+      </div>
+        <div class="col-md-6">
+          <p class='text-muted' style="text-align: justify;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat voluptatum sed doloremque rerum laborum illum incidunt veritatis animi molestiae beatae autem, quia sit voluptatem voluptatibus repudiandae tempora reiciendis aspernatur? Numquam?
+            Obcaecati impedit doloremque aliquid voluptates facere quia, esse aut maxime repellendus vel inventore. Nesciunt excepturi iste consequatur eum quas voluptatibus in doloribus et, nemo debitis consectetur fuga culpa est. Corrupti!
+            Inventore reprehenderit voluptatibus corporis, suscipit, harum sed, ducimus accusamus molestiae sequi aut eius unde cum ad dolores quaerat qui repellat! Maxime iusto harum assumenda. Iusto recusandae commodi totam. Distinctio, dolorum.
+            Necessitatibus <a href="#">Read More &rightarrow;</a>
+          </p>
+        </div>
+    </div>
   </div>
-</div>
 {% endblock content %}

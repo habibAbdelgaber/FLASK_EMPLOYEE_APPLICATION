@@ -17,6 +17,7 @@ class Employees(db.Model):
     username = db.Column(db.String(100))
     age = db.Column(db.Integer)
     email = db.Column(db.String(200), unique=True)
+    
 
     def __init__(self, name, username, age, email):
         self.name = name
@@ -31,9 +32,13 @@ class Employees(db.Model):
 
 @app.route('/', methods=['GET'])
 def home():
+    return render_template('home.html')
+
+
+@app.route('/employees')
+def employees():
     emp_list = Employees.query.all()
-    
-    return render_template('home.html', emp_list=emp_list)
+    return render_template('employees_list.html', emp_list=emp_list)
 
 
 @app.route('/create', methods=['GET', 'POST'])
@@ -56,7 +61,37 @@ def create():
         return redirect(url_for('home'))
     return render_template('create.html')
     
+@app.route('/detail/<id>')
+def detail(id):
+    emp = Employees.query.get(id)
+    return render_template('detail.html', emp=emp)
+
+# Update logic goes here!
+
+@app.route('/delete/<id>', methods=['GET', 'POST'])
+def delete(id):
+    emp = Employees.query.get(id)
+    if request.method == 'POST':
+        db.session.delete(emp)
+        db.session.commit()
+        return redirect(url_for('employees'))
+    return render_template('delete.html', emp=emp)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# Assignment
+"""
+We have seen how simple is to create Flask application, the micro python Framework.
+It works very friendly to create any type of applications that can fills your need.
+And as we created our CRUD application for employees, we seen how thing work friendly though we didn't finish yet it remains one logic to finish or to wrap up our app.
+Now, we want to extends adding some fields;
+1- Add three fields to our database:  a) subject field. b) employee bio field, the employee bio can be displayed only in employee detail.
+c) boolean field, adding boolean field to differentiate if the employee is interviewed or not.
+Hint! mark some employees as interviewed and some not.
+2- All three fields can displayed in employees list except employee bio.
+3- Let's make a function that allows employees to update their information if they want or in case they missed something!
+''' You make this app more complex if you want for e.g if you want to have different interview sections in same app!'''
+# Goodluck!!!
+"""

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+      <div class="row justify-content">
+          <div class="col-md-8">
+              <form action="/delete/{{ emp.id }}" method='POST'>
+                  <h3>Are you sure you want to delete {{ emp.name }}?</h3>
+                  <button class="btn btn-danger" type="submit">Yes, Delete</button>
+                  <a href="/detail/{{ emp.id }}" class='btn btn-secondary'>No, Cancel</a>
+              </form>
+          </div>
+      </div>
+  </div>
+{% endblock content %}
