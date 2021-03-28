@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href=" {{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href=" {{ url_for('static', filename='css/bootstrap.min.css') }}"> -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">    
@@ -37,25 +37,24 @@
             </div>
         </div>
     </header>
-    {% block content %}
     <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-7">
-            {% with  messages = get_flashed_messages()  %}
-              {% if messages %}
-              {% for message in  messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="row mt-1">
+            <div class="col-md-8">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
                     <strong>{{ message }}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-              {% endfor %}  
-              {% endif %}
-            {% endwith %}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
         </div>
+        {% block content %}
+        {% endblock content %}
     </div>
-    </div>
-      
-    {% endblock content %}
     <br>
     <footer class="bg-dark fixed-bottom">
         <div class="container">
@@ -68,9 +67,9 @@
             </div>
         </div>
     </footer>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script> -->
+        crossorigin="anonymous"></script>
 </body>
 </html>

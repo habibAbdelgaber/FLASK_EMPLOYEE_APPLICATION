@@ -68,6 +68,22 @@ def detail(id):
 
 # Update logic goes here!
 
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    emp = Employees.query.get(id)
+    if request.method == 'POST':
+        emp.name = request.form['name']
+        emp.username = request.form['username']
+        emp.age = request.form['age']
+        emp.email = request.form['email']
+        db.session.commit()
+        flash('You updated you information!')
+        print(emp)
+        return redirect(url_for('employees'))
+    return render_template('update.html', emp=emp)
+   
+
+
 @app.route('/delete/<id>', methods=['GET', 'POST'])
 def delete(id):
     emp = Employees.query.get(id)
@@ -79,6 +95,7 @@ def delete(id):
 
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
 
 # Assignment
