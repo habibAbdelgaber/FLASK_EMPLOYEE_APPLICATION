@@ -28,7 +28,11 @@
                                 <td>{{ object.age }}</td>
                                 <td>{{ object.email }}</td>
                                 <td class='interviewed'>
+                                   {% if object.interview %}
                                     <span class="p-1" style="background-color:  #b3ffb3;  border-radius: 10px;">interviewed</span>
+                                   {% else %}
+                                    <span class="p-1" style="background-color:  #eee;  border-radius: 10px;">no interview</span>
+                                   {% endif %}
                                 </td>
                                 <td>
                                     <a href="/detail/{{ object.id }}" style="text-decoration: none;">

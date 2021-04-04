@@ -17,13 +17,19 @@ class Employees(db.Model):
     username = db.Column(db.String(100))
     age = db.Column(db.Integer)
     email = db.Column(db.String(200), unique=True)
-    
+    subject = db.Column(db.String(200))
+    bio = db.Column(db.Text)
+    interview = db.Column(db.Boolean, default=False)    
 
-    def __init__(self, name, username, age, email):
+    def __init__(self, name, username, age, email, subject, bio, interview):
         self.name = name
         self.username = username
         self.age = age
         self.email = email
+        self.subject = subject
+        self.bio = bio
+        self.interview = False
+
 
     def __str__(self):
         return f"{self.name} {self.username}"
@@ -48,11 +54,18 @@ def create():
         username = request.form['username']
         age = request.form['age']
         email = request.form['email']
+        subject = request.form['subject']
+        bio = request.form['bio']
+        interview = False
         employee = Employees(
             name=name,
             username=username,
             age=age,
-            email=email
+            email=email,
+            subject=subject,
+            bio=bio,
+            interview=False
+            
         )
 
         db.session.add(employee)
@@ -76,6 +89,8 @@ def update(id):
         emp.username = request.form['username']
         emp.age = request.form['age']
         emp.email = request.form['email']
+        emp.subject = request.form['subject']
+        emp.bio = request.form['bio']
         db.session.commit()
         flash('You updated you information!')
         print(emp)

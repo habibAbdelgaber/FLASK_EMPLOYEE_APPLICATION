@@ -1,35 +1,45 @@
-{% extends "base.html" %}
-
-{% block content %}
-  <div class="container">
-      <div class="row justify-content-center mt-1">
-          <div class="col-md-6">
-              <div class="card">
-                  <div class="card-body">
-                      <form action="/create" method='POST'>
-                          <div class="form-group">
+{% extends "base.html" %} {% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/create" method='POST'>
+                        <div class="form-group">
                             <label for="name">Name</label>
                             <input class="form-control" type="text" name="name" placeholder="Your name">
-                          </div>
-                          <div class="form-group">
-                                <label for="username">Username</label>
-                                <input class="form-control" type="text" name="username" placeholder=Username>
-                          </div>
-                          <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input class="form-control" type="text" name="username" placeholder=Username>
+                        </div>
+                        <div class="form-group">
                             <label for="age">Age</label>
                             <input class="form-control" type="number" name="age" placeholder='Your age'>
-                          </div>
-                          <div class="form-group">
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input class="form-control" type="text" name="email" placeholder='Your e-mail'>
-                          </div>
-                          <div class="form-group mt-2 d-grid ">
-                              <button class="btn btn-primary btn-block text-uppercase" type="submit">Create Employee</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input class="form-control" type="text" name="subject" placeholder='Your Subject'>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Biography</label>
+                            <textarea name="bio" cols="30" rows="5" placeholder="Your biography" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="interview">Interview</label>
+                            <input type="checkbox" name="interview">
+                        </div>
+                        <div class="form-group mt-2 d-grid ">
+                            <button class="btn btn-primary btn-block text-uppercase" type="submit">Create Employee</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
